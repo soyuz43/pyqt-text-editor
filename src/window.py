@@ -17,7 +17,7 @@ class TextEditor(QMainWindow):
     def createMenus(self):
         menuBar = self.menuBar()
         fileMenu = menuBar.addMenu('File')
-
+        # ! File Menu
         # New File action
         newAction = QAction('New', self)
         newAction.triggered.connect(self.editor.newFile)
@@ -42,6 +42,7 @@ class TextEditor(QMainWindow):
         exitAction = QAction('Exit', self)
         exitAction.triggered.connect(self.close)
         fileMenu.addAction(exitAction)
+        # ---
         # ! Edit Menu
         editMenu = self.menuBar().addMenu('Edit')
         editMenu.addAction(QAction('Cut', self, triggered=self.editor.textEdit.cut))
@@ -49,7 +50,7 @@ class TextEditor(QMainWindow):
         editMenu.addAction(QAction('Cut', self, triggered=self.editor.textEdit.cut))
         editMenu.addAction(QAction('Copy', self, triggered=self.editor.textEdit.copy))
         editMenu.addAction(QAction('Paste', self, triggered=self.editor.textEdit.paste))
-
+        # ---
         helpMenu = menuBar.addMenu('Help')
         aboutAction = QAction('About', self)
         aboutAction.triggered.connect(self.showAbout)
